@@ -6,7 +6,7 @@ on:
 
 jobs:
   trigger_sync:
-    if: contains(github.event.comment.body, '/sync-ananya-do-not-use-tmp')
+    if: contains(github.event.comment.body, '/sync-stable')
     uses: openstack-k8s-operators/ci-framework/.github/workflows/sync_branches_reusable_workflow.yml@main
     with:
       main-branch: main
