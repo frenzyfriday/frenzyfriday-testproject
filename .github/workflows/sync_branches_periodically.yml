@@ -1,5 +1,5 @@
 ---
-name: Github Action to trigger downstream job
+name: Cron job for sync
 on:
   schedule:
     - cron: '0 1 * * 4'
