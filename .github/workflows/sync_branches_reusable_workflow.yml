@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0
         ref:
           ${{ inputs.main-branch }}
-        run: |
+      - run: |
           git fetch origin
 
       - name: Checkout, rebase and push to follower branch
@@ -32,7 +32,7 @@ jobs:
           fetch-depth: 0
         ref:
           ${{ inputs.follower-branch }}
-        run: |
+      - run: |
           # Details about the GH action bot comes from
           # https://api.github.com/users/github-actions%5Bbot%5D
           git config user.name "github-actions[bot]"
