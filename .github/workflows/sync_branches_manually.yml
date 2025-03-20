@@ -1,0 +1,13 @@
+---
+name: Github Action to trigger downstream job
+on:
+  issue_comment:
+    types: [created, edited]
+
+jobs:
+  trigger_sync:
+    if: contains(github.event.comment.body, '/sync-ananya-do-not-use-tmp')
+    uses: openstack-k8s-operators/ci-framework/.github/workflows/sync_branches_reusable_workflow.yml@main
+    with:
+      main-branch: main
+      follower-branch: stable
