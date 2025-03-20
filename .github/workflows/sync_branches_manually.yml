@@ -1,13 +1,19 @@
 ---
-name: Github Action to trigger downstream job
+name: Trigger job for sync
 on:
-  issue_comment:
-    types: [created, edited]
+  workflow_dispatch:
+    inputs:
+      source-branch:
+        required: false
+        default: 'main'
+      target-branch:
+        required: false
+        default: 'stable'
 
 jobs:
   trigger_sync:
     if: contains(github.event.comment.body, '/sync-stable')
     uses: frenzyfriday/frenzyfriday-testproject/.github/workflows/sync_branches_reusable_workflow.yml@main
     with:
-      main-branch: main
-      follower-branch: stable
+      source-branch: main
+      target-branch: stable
