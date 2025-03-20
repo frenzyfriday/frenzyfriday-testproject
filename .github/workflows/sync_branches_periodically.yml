@@ -1,0 +1,12 @@
+---
+name: Github Action to trigger downstream job
+on:
+  schedule:
+    - cron: '0 1 * * 4'
+
+jobs:
+  trigger_sync:
+    uses: openstack-k8s-operators/ci-framework/.github/workflows/sync_branches_reusable_workflow.yml@main
+    with:
+      main-branch: main
+      follower-branch: stable
