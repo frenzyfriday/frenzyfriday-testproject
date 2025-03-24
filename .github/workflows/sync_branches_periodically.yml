@@ -8,5 +8,5 @@ jobs:
   trigger_sync:
     uses: openstack-k8s-operators/ci-framework/.github/workflows/sync_branches_reusable_workflow.yml@main
     with:
-      main-branch: main
-      follower-branch: stable
+      source-branch: main
+      target-branch: stable
