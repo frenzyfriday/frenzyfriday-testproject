@@ -28,7 +28,7 @@ jobs:
 
       - name: Force Push Branch
         run: |
-          git fetch origin ${{ inputs.source_branch }}
-          git checkout ${{ inputs.source_branch }}
-          git rebase ${{ inputs.main-branch }}
-          git push origin ${{ inputs.follower-branch }}
+          git fetch origin ${{ inputs.source-branch }}
+          git checkout ${{ inputs.source-branch }}
+          git rebase ${{ inputs.source-branch }}
+          git push origin ${{ inputs.target-branch }}
