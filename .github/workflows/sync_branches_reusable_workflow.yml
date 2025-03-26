@@ -23,8 +23,8 @@ jobs:
 
       - name: Git config
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "openstack-k8s-ci-robot"
+          git config user.email "70776706+openstack-k8s-ci-robot@users.noreply.github.com"
 
       - name: Force Push Branch
         run: |          
