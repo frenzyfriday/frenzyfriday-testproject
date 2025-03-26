@@ -30,6 +30,8 @@ jobs:
         run: |          
           git remote
           git config user.name
+          git remote show origin
+          git branch -a
           git fetch origin ${{ inputs.source-branch }}
           git checkout ${{ inputs.target-branch }}
           git rebase ${{ inputs.source-branch }}
