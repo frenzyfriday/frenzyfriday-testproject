@@ -27,7 +27,9 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Force Push Branch
-        run: |
+        run: |          
+          git remote
+          git config user.name
           git fetch origin ${{ inputs.source-branch }}
           git checkout ${{ inputs.target-branch }}
           git rebase ${{ inputs.source-branch }}
