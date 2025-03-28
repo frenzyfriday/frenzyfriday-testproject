@@ -10,6 +10,7 @@ on:
         required: false
         default: 'ananya-do-not-use-tmp'
 
+
 jobs:
   bad-person-trigger-sync:
     uses: frenzyfriday/frenzyfriday-testproject/.github/workflows/sync_branches_reusable_workflow.yml@bad-person
