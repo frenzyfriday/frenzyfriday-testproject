@@ -6,7 +6,7 @@ on:
       source-branch:
         required: false
         type: string
-        deafult: ananya-do-not-use-tmp
+        default: ananya-do-not-use-tmp
       target-branch:
         required: false
         default: ananya-do-not-use-tmp
