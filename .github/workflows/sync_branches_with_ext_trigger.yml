@@ -1,7 +1,7 @@
 ---
 name: Sync a target branch with source branch
 on:
-  workflow_dispatch:
+  repository_dispatch:
     inputs:
       source-branch:
         required: false
