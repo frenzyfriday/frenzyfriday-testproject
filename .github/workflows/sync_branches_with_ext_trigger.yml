@@ -12,7 +12,7 @@ on:
 
 jobs:
   trigger-sync:
-    uses: openstack-k8s-operators/ci-framework/.github/workflows/sync_branches_reusable_workflow.yml@main
+    uses: frenzyfriday/frenzyfriday-testproject/.github/workflows/sync_branches_with_ext_trigger.yml@main
     with:
       source-branch: ${{ inputs.source-branch }}
       target-branch: ananya-do-not-use-tmp # Hardcoded till testing finishes
