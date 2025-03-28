@@ -10,5 +10,4 @@ jobs:
     with:
       source-branch: ${{ github.event.client_payload.source-branch }}
       target-branch: ananya-do-not-use-tmp # Hardcoded till testing finishes
-    secrets:
-      ssh-key: ${{ secrets.DEPLOY_KEY }}
+    secrets: inherit
