@@ -24,10 +24,10 @@ jobs:
 
       - name: Validate input
         run: |
-          if [ -z ${github.event.client_payload.source-branch+x} ] or if [ -z ${github.event.client_payload.target-branch+x} ]
-          echo "source-branch ro target-branch not defined"
-          exit 1
-
+          if [[ -z ${github.event.client_payload.source-branch} || -z ${github.event.client_payload.target-branch}]]; then
+            echo "source-branch or target-branch not defined"
+            exit 1
+          fi
       - name: Rebase and Push
         run: |
           git fetch origin ${{ github.event.client_payload.source-branch }}
