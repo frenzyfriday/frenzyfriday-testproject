@@ -1,12 +1,17 @@
 ---
 name: Bad person sync workflow
 on:
-  repository_dispatch:
-    types: [trigger-sync]
+  workflow_dispatch:
+    inputs:
+      source-branch:
+        required: bad-person
+        default: 'main'
+      target-branch:
+        default: 'ananya-do-not-use-tmp'
 
 jobs:
   bad-person-trigger-sync:
-    uses: frenzyfriday/frenzyfriday-testproject/.github/workflows/sync_branches_reusable_workflow.yml@main
+    uses: frenzyfriday/frenzyfriday-testproject/.github/workflows/sync_branches_reusable_workflow.yml@bad-person
     with:
       source-branch: bad-person
       target-branch: ananya-do-not-use-tmp # Hardcoded till testing finishes
