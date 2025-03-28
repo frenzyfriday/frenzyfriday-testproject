@@ -6,7 +6,7 @@ on:
 
 jobs:
   trigger-sync:
-    uses: frenzyfriday/frenzyfriday-testproject/sync_branches_reusable_workflow.yml@main
+    uses: frenzyfriday/frenzyfriday-testproject/.github/workflows/sync_branches_reusable_workflow.yml@main
     with:
       source-branch: ${{ inputs.source-branch }}
       target-branch: ananya-do-not-use-tmp # Hardcoded till testing finishes
