@@ -23,11 +23,11 @@ jobs:
           git config --global user.email "openstack-k8s@redhat.com"
 
       - name: Validate input
+        if [[ ${github.event.client_payload.source-branch} == '' || ${github.event.client_payload.target-branch} == '' ]]
         run: |
-          if [[ ${github.event.client_payload.source-branch} == '' || ${github.event.client_payload.target-branch} == '' ]]; then
-            echo "source-branch or target-branch not defined"
+          echo "source-branch or target-branch not defined"
             exit 1
-          fi
+
       - name: Rebase and Push
         run: |
           git fetch origin ${{ github.event.client_payload.source-branch }}
