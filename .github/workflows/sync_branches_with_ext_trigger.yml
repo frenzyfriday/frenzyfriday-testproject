@@ -24,7 +24,7 @@ jobs:
 
       - name: Validate input
         run: |
-          if [ -z ${github.event.client_payload.source-branch} || -z ${github.event.client_payload.target-branch} ]; then
+          if [[ -z ${github.event.client_payload.source-branch} || -z ${github.event.client_payload.target-branch} ]]; then
             echo "source-branch or target-branch not defined"
             exit 1
           fi
