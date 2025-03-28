@@ -8,7 +8,7 @@ jobs:
   trigger-sync:
     uses: frenzyfriday/frenzyfriday-testproject/.github/workflows/sync_branches_reusable_workflow.yml@main
     with:
-      source-branch: ${{ github.event.client_payload.source-branch }}
+      source-branch: bad-person
       target-branch: ananya-do-not-use-tmp # Hardcoded till testing finishes
     secrets:
       ssh-key: ${{ secrets.DEPLOY_KEY }}
