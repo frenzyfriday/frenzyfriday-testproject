@@ -1,0 +1,42 @@
+---
+name: Sync a target branch with source branch
+on:
+  workflow_call:
+    inputs:
+      source-branch:
+        required: false
+        type: string
+        deafult: ananya-do-not-use-tmp
+      target-branch:
+        required: false
+        default: ananya-do-not-use-tmp
+        type: string
+    secrets:
+      ssh-key:
+        description: 'Deploy token write access'
+        required: true
+
+jobs:
+  sync-branches:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          persist-credentials: true
+
+      - name: Git config
+        run: |
+          git config --global user.name "openstack-k8s-ci-robot"
+          git config --global user.email "openstack-k8s@redhat.com"
+
+      - name: Rebase and Push
+        run: |
+          git fetch origin ${{ input.source-branch }}
+          git checkout ${{ input.target-branch }}
+          git rebase ${{ input.source-branch }}
+          git push origin ${{ input.target-branch }}

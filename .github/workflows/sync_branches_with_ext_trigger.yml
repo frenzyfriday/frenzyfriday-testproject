@@ -5,26 +5,9 @@ on:
     types: [trigger-sync]
 
 jobs:
-  sync-branches:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
-          persist-credentials: true
-
-      - name: Git config
-        run: |
-          git config --global user.name "openstack-k8s-ci-robot"
-          git config --global user.email "openstack-k8s@redhat.com"
-
-      - name: Rebase and Push
-        run: |
-          git fetch origin ${{ github.event.client_payload.source-branch }}
-          git checkout ${{ github.event.client_payload.target-branch }}
-          git rebase ${{ github.event.client_payload.source-branch }}
-          git push origin ${{ github.event.client_payload.target-branch }}
+  trigger-sync:
+    uses: frenzyfriday/frenzyfriday-testproject/sync_branches_reusable_workflow.yml@main
+    with:
+      source-branch: ${{ inputs.source-branch }}
+      target-branch: ananya-do-not-use-tmp # Hardcoded till testing finishes
+      ssh-key: ${{ secrets.DEPLOY_KEY }}
