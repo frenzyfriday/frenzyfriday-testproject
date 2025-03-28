@@ -11,10 +11,6 @@ on:
         required: false
         default: ananya-do-not-use-tmp
         type: string
-    secrets:
-      ssh-key:
-        description: 'Deploy token write access'
-        required: true
 
 jobs:
   sync-branches:
