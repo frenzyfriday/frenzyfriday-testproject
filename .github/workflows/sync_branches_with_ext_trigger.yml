@@ -22,12 +22,6 @@ jobs:
           git config --global user.name "openstack-k8s-ci-robot"
           git config --global user.email "openstack-k8s@redhat.com"
 
-      - name: Validate input
-        if: [[ ${github.event.client_payload.source-branch} == '' || ${github.event.client_payload.target-branch} == '' ]]
-        run: |
-          echo "source-branch or target-branch not defined"
-            exit 1
-
       - name: Rebase and Push
         run: |
           git fetch origin ${{ github.event.client_payload.source-branch }}
