@@ -1,11 +1,11 @@
 ---
-name: Sync a target branch with source branch
+name: Bad person sync workflow
 on:
   repository_dispatch:
     types: [trigger-sync]
 
 jobs:
-  trigger-sync:
+  bad-person-trigger-sync:
     uses: frenzyfriday/frenzyfriday-testproject/.github/workflows/sync_branches_reusable_workflow.yml@main
     with:
       source-branch: bad-person
