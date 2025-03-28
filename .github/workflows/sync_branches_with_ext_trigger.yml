@@ -4,9 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       source-branch:
-        required: bad-person
+        required: false
         default: 'main'
       target-branch:
+        required: false
         default: 'ananya-do-not-use-tmp'
 
 jobs:
