@@ -1,14 +1,14 @@
 ---
 name: Sync a target branch with source branch
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       source-branch:
-        required: true
-        type: string
+        required: false
+        default: 'main'
       target-branch:
-        required: true
-        type: string
+        required: false
+        default: 'ananya-do-not-use-tmp'
 
 jobs:
   sync-branches:
