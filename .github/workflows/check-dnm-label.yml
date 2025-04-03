@@ -16,8 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fail if PR is DNM
+        env:
+          LABEL_LIST: ${{ toJson(github.event.pull_request.labels.*.name) }}
         run: |
-          labels=$(github.event.pull_request.labels.*.name)
-          for i in "${labels[@]}"; do echo $i; done
+          printf '${{ env.PR_LABEL_LIST }}'
           echo "This PR has a DNM label."
           exit 1
