@@ -17,8 +17,8 @@ jobs:
     steps:
       - name: Fail if PR is DNM
         if: contains(github.event.pull_request.labels.*.name, 'do-not-merge/hold') || \
-        contains(github.event.pull_request.labels.*.name, 'do-not-merge/work-in-progress' || \
-        contains(github.event.pull_request.labels.*.name, 'do-not-merge/contains-merge-commits' )
+            contains(github.event.pull_request.labels.*.name, 'do-not-merge/work-in-progress' || \
+            contains(github.event.pull_request.labels.*.name, 'do-not-merge/contains-merge-commits' )
         run: |
           echo "This PR has a DNM label."
           exit 1
