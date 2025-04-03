@@ -16,7 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fail if PR is DNM
-        if: startsWith(github.event.pull_request.labels.*.name, 'do-not-merge')
         run: |
           labels=github.event.pull_request.labels.*.name
           for i in "${labels[@]}"; do echo $i; done
