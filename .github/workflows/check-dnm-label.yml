@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Fail if PR is DNM
         run: |
-          labels=github.event.pull_request.labels.*.name
-          for i in ${labels[@]}; do echo $i; done
+          labels=$(github.event.pull_request.labels.*.name)
+          for i in "${labels[@]}"; do echo $i; done
           echo "This PR has a DNM label."
           exit 1
