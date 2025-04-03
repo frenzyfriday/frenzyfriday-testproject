@@ -17,5 +17,5 @@ jobs:
     steps:
       - name: Fail if PR is DNM
         run: |
-          echo "$(github.event.pull_request.labels.*.name)"
+          echo "$github.event.pull_request.labels.*.name"
           exit 1
